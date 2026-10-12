@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Liquidación de Comisiones · Grupo MG</title>
+<style>
+:root{
+  --bg:#f4f5f7; --card:#fff; --ink:#1b2430; --muted:#667085; --line:#e4e7ec;
+  --brand:#1F4E78; --brand-ink:#fff; --soft:#EAF2FB; /* COLOR MG: cambiar aquí (--brand) si el color institucional es otro */ --r:3px;
+  --ok:#0a7d4f; --ok-bg:#e3f5ec; --warn:#a15c00; --warn-bg:#fff1d6; --info:#1F4E78; --info-bg:#EAF2FB; --bad:#b42318;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151c; --card:#18202a; --ink:#e8edf3; --muted:#9aa7b6; --line:#2a3542;
+    --brand:#6FA8DC; --brand-ink:#0b1117; --soft:#1d2b3a;
+    --ok:#4cc38a; --ok-bg:#12301f; --warn:#f0b24a; --warn-bg:#3a2a0c; --info:#8DBDEB; --info-bg:#172a3d; --bad:#ff8a7a;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 40px}
+header.top{background:var(--card);border-bottom:3px solid var(--brand)}
+.lg{height:36px;width:auto;display:block}
+.brand{display:flex;align-items:center;gap:10px}
+header.top .wrap{display:flex;align-items:center;gap:12px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+.logo{font-weight:700;letter-spacing:.02em;color:var(--brand);font-size:17px}
+.logo small{display:block;font-weight:500;color:var(--muted);font-size:12px;letter-spacing:0}
+.spacer{flex:1}
+.who{text-align:right;font-size:13px;color:var(--muted)}
+.who b{display:block;color:var(--ink);font-size:14px}
+button,.btn{font:inherit;cursor:pointer;border-radius:var(--r);border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px}
+button:hover{border-color:var(--brand)}
+button.primary{background:var(--brand);color:var(--brand-ink);border-color:var(--brand);font-weight:600}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.login{max-width:400px;margin:12vh auto 0;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--r);padding:28px}
+.login h1{margin:0 0 4px;font-size:20px}
+.login p{margin:0 0 18px;color:var(--muted);font-size:14px}
+.login input{width:100%;font:600 20px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg);color:var(--ink)}
+.login button{width:100%;margin-top:12px;padding:12px}
+.err{color:var(--bad);font-size:14px;margin-top:10px;min-height:20px}
+.hint{font-size:12.5px;color:var(--muted);margin-top:14px;text-align:center}
+.months{display:flex;gap:6px;overflow-x:auto;padding:16px 0 6px;scrollbar-width:thin}
+.chip{white-space:nowrap;border-radius:var(--r);padding:6px 14px;font-size:13.5px}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand);font-weight:600}
+.chip{padding:6px 12px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0 14px}
+.bar select,.bar input[type=search]{font:inherit;padding:8px 10px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:8px 0 16px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.kpi .l{font-size:12.5px;color:var(--muted)}
+.kpi .v{font-size:24px;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:12px;color:var(--muted);margin-top:2px}
+.kpi.main{background:var(--soft);border-color:transparent}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:16px;overflow:hidden}
+.card h2{margin:0;padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center}
+.card h2 .n{color:var(--muted);font-weight:500}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:12px;color:var(--muted);font-weight:600;background:var(--soft);text-transform:uppercase;letter-spacing:.03em}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+td.wrap-c{white-space:normal;min-width:180px;color:var(--muted);font-size:13px}
+tr:last-child td{border-bottom:0}
+tr.sub td{background:var(--soft);font-weight:600}
+tr.me td{background:color-mix(in srgb,var(--brand) 8%,transparent)}
+.tag{display:inline-block;border-radius:var(--r);padding:2px 10px;font-size:12px;font-weight:600}
+.tag.ok{background:var(--ok-bg);color:var(--ok)}
+.tag.warn{background:var(--warn-bg);color:var(--warn)}
+.tag.info{background:var(--info-bg);color:var(--info)}
+.ref{font-size:11.5px;color:var(--warn);margin-left:4px}
+.note{font-size:12.5px;color:var(--muted);margin:4px 0 16px}
+.chart{padding:12px 16px 8px}
+.chart svg{width:100%;height:170px;display:block}
+.chart .bar-r{fill:var(--brand);opacity:.28}
+.chart .bar-r.sel{opacity:1}
+.chart text{fill:var(--muted);font-size:10.5px}
+.tg{border:0;background:none;padding:0 4px;color:var(--brand);font-size:14px}
+.dt{font-size:13px}.dt th{background:var(--soft)}
+tr.det>td{background:var(--bg)}
+.tabs{display:flex;gap:6px}
+.sw{font:inherit;padding:6px 8px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.dflt{color:var(--muted);font-size:12.5px}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+.printhead{display:none}
+@media (max-width:560px){ .kpi .v{font-size:20px} .who{text-align:left} }
+@media print{
+  body{background:#fff;color:#000}
+  header.top,.months,.bar,.noprint,.chart{display:none!important}
+  .printhead{display:block;margin-bottom:12px}
+  .card,.kpi{border-color:#bbb;break-inside:avoid}
+  .kpi.main{background:#eee}
+  .tag{border:1px solid #888;background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="lib/xlsx.full.min.js"></script>
+<script>
+"use strict";
+const ITER = 200000;
+const fmtS = n => n==null ? "—" : "S/ " + Number(n).toLocaleString("es-PE",{maximumFractionDigits:0});
+const fmtN = n => n==null || n===0 ? "–" : Number(n).toLocaleString("es-PE");
+const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $ = (s,r=document)=>r.querySelector(s);
+const app = $("#app");
+let D = null;            // datos descifrados (solo en memoria)
+let state = {mes:null, jefe:"", q:"", vista:"com"};
+let EST = {meses:{}, personas:{}};   // publicación (estado.json)
+
+/* ---------- criptografía (AES-GCM + PBKDF2, compatible con build_portal.py) ---------- */
+const limpiar = c => c.toUpperCase().replace(/[^A-Z0-9]/g,"");
+async function sha256hex(s){
+  const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+  return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,"0")).join("");
+}
+async function abrir(codigo){
+  const c = limpiar(codigo);
+  if (c.length < 10) throw new Error("corto");
+  const name = (await sha256hex("mgfile:"+c)).slice(0,32)+".enc";
+  const r = await fetch("d/"+name, {cache:"no-store"});
+  if (!r.ok) throw new Error("nf");
+  const buf = new Uint8Array(await r.arrayBuffer());
+  const salt = buf.slice(0,16), iv = buf.slice(16,28), ct = buf.slice(28);
+  const km = await crypto.subtle.importKey("raw", new TextEncoder().encode(c), "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey({name:"PBKDF2", salt, iterations:ITER, hash:"SHA-256"}, km, {name:"AES-GCM", length:256}, false, ["decrypt"]);
+  const pt = await crypto.subtle.decrypt({name:"AES-GCM", iv}, key, ct);
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+
+/* ---------- login ---------- */
+function loginView(msg=""){
+  D = null;
+  app.innerHTML = `
+  <main class="login">
+    <div class="brand" style="margin-bottom:16px"><img class="lg" src="logo.png" alt="" onerror="this.remove()"><div class="logo">GRUPO MG<small>Liquidación de comisiones</small></div></div>
+    <h1>Ingresa a tu liquidación</h1>
+    <p>Escribe el código personal que te envió el área de Contratos y Cobranzas.</p>
+    <form id="f" autocomplete="off">
+      <input id="cod" inputmode="text" autocapitalize="characters" spellcheck="false" placeholder="XXXXX-XXXXX" maxlength="12" aria-label="Código de acceso" autofocus>
+      <button class="primary" id="go" type="submit">Ingresar</button>
+    </form>
+    <div class="err" id="err" role="alert">${esc(msg)}</div>
+    <div class="hint">El código es personal e intransferible. Solo verás tu información.</div>
+  </main>`;
+  $("#f").addEventListener("submit", async e=>{
+    e.preventDefault();
+    const b = $("#go"), er = $("#err");
+    b.disabled = true; b.textContent = "Verificando…"; er.textContent = "";
+    try{
+      D = await abrir($("#cod").value);
+      await prepararVisibilidad();
+      state = {mes:D.meses.length?D.meses[D.meses.length-1].clave:null, jefe:"", q:"", vista:"com"};
+      render();
+    }catch(x){
+      b.disabled = false; b.textContent = "Ingresar";
+      er.textContent = "Código no válido. Revísalo e inténtalo de nuevo.";
+    }
+  });
+}
+
+/* ---------- utilidades de datos ---------- */
+const mesActual = () => D.meses.find(m=>m.clave===state.mes) || D.meses[D.meses.length-1];
+const suma = (arr,k) => arr.reduce((a,f)=>a+(f[k]||0),0);
+const estF = f => f.pago==="Pagado" ? "Pagado" : f.estado;
+const tagEstado = e => `<span class="tag ${e==="Aprobado"||e==="Pagado"?"ok":e==="En revisión"?"info":"warn"}">${esc(e)}</span>`;
+const yo = () => D.usuario.nombre.toLowerCase();
+function detalleTabla(f){
+  if(!f.detalle||!f.detalle.length) return `<div class="empty">Sin detalle disponible.</div>`;
+  const r = f.detalle.map(i=>`<tr><td>${esc(i.proyecto)}</td><td>${esc(i.dpto)}</td><td>${esc(i.cliente)}</td><td>${esc(i.concepto)}</td><td>${esc(i.tipo)}</td><td>${esc(i.minuta)}</td><td>${esc(i.escritura)}</td><td class="r"><b>${i.monto==null?"—":(i.monto<0?"− ":"")+fmtS(Math.abs(i.monto))}</b></td><td class="wrap-c">${esc(i.nota)}</td></tr>`).join("");
+  const ex = (f.bono?`<tr class="sub"><td colspan="7">Bonos</td><td class="r">${fmtS(f.bono)}</td><td></td></tr>`:"")+(f.dscto?`<tr class="sub"><td colspan="7">Descuentos / adelantos</td><td class="r">− ${fmtS(f.dscto)}</td><td></td></tr>`:"");
+  return `<div class="tw"><table class="dt"><tr><th>Proyecto</th><th>Dpto</th><th>Cliente</th><th>Concepto</th><th>Financiamiento</th><th>F. minuta</th><th>F. escritura</th><th class="r">Comisión</th><th>Nota</th></tr>${r}${ex}<tr class="sub"><td colspan="7">Total a pagar${f.pago?` · ${esc(f.pago)}`:""}</td><td class="r">${fmtS(f.monto)}</td><td></td></tr></table></div>`;
+}
+const esYo = f => f.nombre.toLowerCase()===yo();
+
+function filasVisibles(m){
+  let fs = m.filas;
+  if (state.jefe) fs = fs.filter(f=>f.jefe===state.jefe || f.nombre===state.jefe);
+  if (state.q) fs = fs.filter(f=>(f.nombre+" "+f.jefe).toLowerCase().includes(state.q.toLowerCase()));
+  return fs;
+}
+
+/* ---------- vistas ---------- */
+function render(){
+  const u = D.usuario, m = mesActual();
+  if (!m){
+    app.innerHTML = `<header class="top"><div class="wrap"><div class="brand"><img class="lg" src="logo.png" alt="" onerror="this.remove()"><div class="logo">GRUPO MG<small>Liquidación de comisiones</small></div></div><div class="spacer"></div><div class="who"><b>${esc(u.nombre)}</b></div><button id="out">Salir</button></div></header><div class="wrap"><div class="card"><div class="empty">Aún no hay liquidaciones publicadas para ti. Consulta con Contratos y Cobranzas.</div></div></div>`;
+    $("#out").onclick=()=>loginView(); return;
+  }
+  const rolTxt = {asesor:"Asesor de ventas", jefe:"Jefe de ventas", gerencia:"Vista de gerencia", admin:"Administrador"}[u.rol];
+  const chips = [...D.meses].reverse().map(x=>`<button class="chip" aria-pressed="${x.clave===m.clave}" data-m="${x.clave}">${esc(x.etiqueta)}</button>`).join("");
+  app.innerHTML = `
+  <header class="top"><div class="wrap">
+    <div class="brand"><img class="lg" src="logo.png" alt="" onerror="this.remove()"><div class="logo">GRUPO MG<small>Liquidación de comisiones</small></div></div>
+    <div class="spacer"></div>
+    ${u.rol==="admin"?`<div class="tabs noprint"><button class="chip" aria-pressed="${state.vista==="com"}" data-v="com">Comisiones</button><button class="chip" aria-pressed="${state.vista==="admin"}" data-v="admin">Administración</button></div>`:""}
+    <div class="who"><b>${esc(u.nombre)}</b>${rolTxt}</div>
+    <button id="out" class="noprint">Salir</button>
+  </div></header>
+  <div class="wrap">
+    <div class="months noprint" role="group" aria-label="Mes">${chips}</div>
+    <div class="printhead"><b>Grupo MG · Liquidación de comisiones</b><br>${esc(u.nombre)} — ${esc(m.etiqueta)}</div>
+    <div id="body"></div>
+    <p class="note">Información al ${esc(D.generado.split("-").reverse().join("/"))}. Los montos corresponden a la liquidación mensual del área de Contratos y Cobranzas; ante cualquier diferencia, comunícate con el área.</p>
+  </div>`;
+  $("#out").onclick = ()=>loginView();
+  app.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{state.mes=b.dataset.m; render();});
+  app.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>{state.vista=b.dataset.v; render();});
+  const body = $("#body");
+  if (u.rol==="admin" && state.vista==="admin"){ $(".months").style.display="none"; body.innerHTML = vistaAdmin(); bindAdmin(); return; }
+  if (u.rol==="asesor") body.innerHTML = vistaAsesor(m);
+  else if (u.rol==="jefe") body.innerHTML = vistaJefe(m);
+  else body.innerHTML = vistaEquipo(m, true);
+  bindAcciones();
+}
+
+function acciones(){
+  return `<div class="bar noprint">
+    <button class="primary" data-a="xlsx-mes">⬇ Descargar Excel (${esc(mesActual().etiqueta)})</button>
+    <button data-a="xlsx-todo">⬇ Descargar historial completo</button>
+    <button data-a="print">🖨 Imprimir / PDF</button>
+  </div>`;
+}
+
+function grafico(serie){ // serie: [{etiqueta, clave, valor}]
+  const W=700,H=170,pl=8,pb=22,pt=16, n=serie.length, max=Math.max(1,...serie.map(s=>s.valor));
+  const bw=(W-pl*2)/n;
+  const bars = serie.map((s,i)=>{
+    const h=(H-pb-pt)*s.valor/max, x=pl+i*bw+bw*.15, y=H-pb-h;
+    const [yy,mm]=s.clave.split("-");
+    const sel = s.clave===state.mes;
+    return `<rect class="bar-r ${sel?"sel":""}" x="${x}" y="${y}" width="${bw*.7}" height="${Math.max(h,1)}" rx="3"><title>${esc(s.etiqueta)}: ${fmtS(s.valor)}</title></rect>
+      <text x="${x+bw*.35}" y="${H-7}" text-anchor="middle">${mm}/${yy.slice(2)}</text>
+      ${s.valor?`<text x="${x+bw*.35}" y="${y-4}" text-anchor="middle">${Math.round(s.valor/100)/10}k</text>`:""}`;
+  }).join("");
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Evolución mensual de comisiones">${bars}</svg>`;
+}
+
+function vistaAsesor(m){
+  const f = m.filas[0];
+  const serie = D.meses.map(x=>({etiqueta:x.etiqueta, clave:x.clave, valor:(x.filas[0].monto||0)}));
+  const total12 = serie.slice(-12).reduce((a,s)=>a+s.valor,0);
+  return `
+  ${acciones()}
+  <div class="kpis">
+    <div class="kpi main"><div class="l">Comisión de ${esc(m.etiqueta)}</div><div class="v">${fmtS(f.monto)}</div><div class="s">${tagEstado(estF(f))}</div></div>
+    <div class="kpi"><div class="l">Ventas</div><div class="v">${fmtN(f.ventas)||"–"}</div><div class="s">del mes</div></div>
+    <div class="kpi"><div class="l">Desembolsos</div><div class="v">${fmtN(f.desembolsos)}</div><div class="s">cobrados en el mes</div></div>
+    <div class="kpi"><div class="l">Bonos / Penalidades</div><div class="v">${fmtN(f.bonos)} / ${fmtN(f.penalidad)}</div><div class="s">incluidos en el monto</div></div>
+  </div>
+  <div class="card"><h2>Resumen de ${esc(m.etiqueta)}</h2><div class="tw">${tabla(m.filas,false).replace(/<tr class="det"[\s\S]*?<\/tr>/g,"").replace(/<button class="tg"[\s\S]*?<\/button> /g,"")}</div></div>
+  <div class="card"><h2>Ventas que componen tu comisión <span class="n">· ${esc(m.etiqueta)}</span></h2>${f.detalle?detalleTabla(f):`<div class="empty">El detalle de este mes aún no está disponible. Consulta con Contratos y Cobranzas.</div>`}</div>
+  <div class="card"><h2>Mi evolución <span class="n">· últimos 12 meses: ${fmtS(total12)}</span></h2><div class="chart">${grafico(serie)}</div></div>`;
+}
+
+function tabla(fs, conJefe){
+  if (!fs.length) return `<div class="empty">Sin registros para este filtro.</div>`;
+  const head = `<tr><th>Nombre</th>${conJefe?"<th>Equipo</th>":""}<th>Modalidad</th><th class="r">Ventas</th><th class="r">Desemb.</th><th class="r">Bonos</th><th class="r">Penal.</th><th class="r">Comisión</th><th>Estado</th><th>Comentario</th></tr>`;
+  const rows = fs.map(f=>`<tr class="${esYo(f)&&D.usuario.rol!=="asesor"?"me":""}">
+    <td>${f.detalle?`<button class="tg" aria-expanded="false" title="Ver detalle de ventas">▸</button> `:""}${esc(f.nombre)}${f.rol==="Jefe de ventas"?' <span class="tag info">Jefe</span>':""}</td>
+    ${conJefe?`<td>${esc(f.jefe)}</td>`:""}
+    <td>${esc(f.modalidad)}</td>
+    <td class="r">${fmtN(f.ventas)}</td><td class="r">${fmtN(f.desembolsos)}</td><td class="r">${fmtN(f.bonos)}</td><td class="r">${fmtN(f.penalidad)}</td>
+    <td class="r"><b>${fmtS(f.monto)}</b>${f.referencial?'<span class="ref" title="Calculado según la Escala de Jefes (unidades del equipo × tramo). Referencial hasta su liquidación.">ref.</span>':""}</td>
+    <td>${tagEstado(estF(f))}</td><td class="wrap-c">${esc(f.comentario)}</td></tr>${f.detalle?`<tr class="det" hidden><td colspan="${conJefe?10:9}" style="padding:0">${detalleTabla(f)}</td></tr>`:""}`).join("");
+  return `<table>${head}${rows}</table>`;
+}
+
+function vistaEquipo(m, gerencia){
+  const fs = filasVisibles(m);
+  const jefes = [...new Set(m.filas.filter(f=>f.rol==="Jefe de ventas").map(f=>f.nombre))];
+  const asesores = fs.filter(f=>f.rol!=="Jefe de ventas");
+  const jefesRows = fs.filter(f=>f.rol==="Jefe de ventas");
+  const totAs = suma(asesores,"monto"), totJe = suma(jefesRows,"monto");
+  const aprob = asesores.filter(f=>f.estado==="Aprobado").length;
+  const unidades = suma(asesores,"ventas");
+  const miFila = !gerencia ? m.filas.find(esYo) : null;
+  let kp = "";
+  if (!gerencia && miFila){
+    kp = `<div class="kpi main"><div class="l">Mi comisión · ${esc(m.etiqueta)}</div><div class="v">${fmtS(miFila.monto)}${miFila.referencial?'<span class="ref">ref.</span>':""}</div><div class="s">${miFila.referencial?"Referencial según Escala de Jefes":tagEstado(miFila.estado)}</div></div>`;
+  }
+  const grupos = [];
+  if (gerencia && !state.jefe){
+    jefes.forEach(j=>{
+      const g = fs.filter(f=>f.jefe===j || f.nombre===j);
+      if (g.length) grupos.push({t:`Equipo ${j}`, fs:g});
+    });
+    const sin = fs.filter(f=>!f.jefe && f.rol!=="Jefe de ventas");
+    if (sin.length) grupos.push({t:"Sin equipo asignado / externos", fs:sin});
+  } else grupos.push({t:gerencia?`Equipo ${state.jefe}`:"Mi equipo", fs});
+  const serie = D.meses.map(x=>({etiqueta:x.etiqueta, clave:x.clave, valor:suma(x.filas.filter(f=>f.rol!=="Jefe de ventas"),"monto")}));
+  return `
+  ${acciones()}
+  <div class="bar noprint">
+    ${gerencia?`<select id="fj" aria-label="Filtrar por equipo"><option value="">Todos los equipos</option>${jefes.map(j=>`<option ${j===state.jefe?"selected":""}>${esc(j)}</option>`).join("")}</select>`:""}
+    <input type="search" id="fq" placeholder="Buscar asesor…" value="${esc(state.q)}" aria-label="Buscar asesor">
+  </div>
+  <div class="kpis">
+    ${kp}
+    <div class="kpi ${kp?"":"main"}"><div class="l">Comisiones de asesores</div><div class="v">${fmtS(totAs)}</div><div class="s">${asesores.length} asesores con registro</div></div>
+    <div class="kpi"><div class="l">Unidades vendidas</div><div class="v">${fmtN(unidades)||"–"}</div><div class="s">${gerencia?"empresa":"mi equipo"} · ${esc(m.etiqueta)}</div></div>
+    <div class="kpi"><div class="l">Aprobadas</div><div class="v">${aprob} / ${asesores.length}</div><div class="s">liquidaciones de asesores</div></div>
+    ${gerencia?`<div class="kpi"><div class="l">Jefes de ventas</div><div class="v">${fmtS(totJe)}</div><div class="s">referencial (Escala de Jefes)</div></div>`:""}
+  </div>
+  ${grupos.map(g=>{
+    const a=g.fs.filter(f=>f.rol!=="Jefe de ventas");
+    return `<div class="card"><h2>${esc(g.t)} <span class="n">· ${a.length} asesores · ${fmtS(suma(a,"monto"))}</span></h2><div class="tw">${tabla(g.fs,gerencia&&!state.jefe)}</div></div>`;
+  }).join("")}
+  <div class="card"><h2>Evolución de comisiones de asesores ${gerencia?"(empresa)":"(mi equipo)"}</h2><div class="chart">${grafico(serie)}</div></div>`;
+}
+
+function bindAcciones(){
+  app.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>{
+    const a=b.dataset.a;
+    if (a==="print") window.print();
+    if (a==="xlsx-mes") descargar([mesActual()]);
+    if (a==="xlsx-todo") descargar(D.meses);
+  });
+  app.querySelectorAll(".tg").forEach(b=>b.onclick=()=>{const tr=b.closest("tr").nextElementSibling; const open=tr.hidden; tr.hidden=!open; b.setAttribute("aria-expanded",open); b.textContent=open?"▾":"▸";});
+  const fj=$("#fj"); if(fj) fj.onchange=()=>{state.jefe=fj.value; render();};
+  const fq=$("#fq"); if(fq){ fq.oninput=()=>{state.q=fq.value; const p=fq.selectionStart; render(); const n=$("#fq"); n.focus(); n.setSelectionRange(p,p);} }
+}
+
+/* ---------- descarga a Excel ---------- */
+function descargar(meses){
+  if (typeof XLSX==="undefined"){ alert("No se pudo cargar el generador de Excel. Revisa tu conexión e inténtalo otra vez."); return; }
+  const esJefeOGer = D.usuario.rol!=="asesor";
+  const cab = ["Mes","Nombre","Perfil","Equipo (jefe)","Modalidad","Ventas","Desembolsos","Bonos","Penalidades","Comisión (S/)","Referencial","Estado","Presentado a gerencia","Comentario"];
+  const filtro = m => D.usuario.rol==="gerencia" ? filasVisibles(m) : (D.usuario.rol==="jefe" ? filasVisibles(m) : m.filas);
+  const aoa = [cab];
+  [...meses].forEach(m=>filtro(m).forEach(f=>aoa.push([m.etiqueta,f.nombre,f.rol,f.jefe,f.modalidad,f.ventas,f.desembolsos,f.bonos,f.penalidad,f.monto,f.referencial?"Sí":"",f.estado,f.presentado,f.comentario])));
+  if (meses.length===1){
+    const fs = aoa.slice(1);
+    aoa.push([]); aoa.push(["","TOTAL asesores","","","","","","","", fs.filter(r=>r[2]!=="Jefe de ventas").reduce((a,r)=>a+(r[9]||0),0)]);
+  }
+  const ws = XLSX.utils.aoa_to_sheet(aoa);
+  ws["!cols"] = [14,28,14,22,12,8,12,8,11,14,11,20,18,40].map(w=>({wch:w}));
+  ws["!freeze"] = {xSplit:0,ySplit:1};
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Comisiones");
+  const det=[["Mes","Asesor","Proyecto","Dpto","Cliente","Concepto","Financiamiento","F. minuta","F. escritura","Comisión (S/)","Nota"]];
+  meses.forEach(m=>filtro(m).forEach(f=>(f.detalle||[]).forEach(i=>det.push([m.etiqueta,f.nombre,i.proyecto,i.dpto,i.cliente,i.concepto,i.tipo,i.minuta,i.escritura,i.monto,i.nota]))));
+  if(det.length>1){const wd=XLSX.utils.aoa_to_sheet(det); wd["!cols"]=[14,26,16,8,38,22,16,12,12,14,30].map(w=>({wch:w})); XLSX.utils.book_append_sheet(wb,wd,"Detalle de ventas");}
+  const base = D.usuario.nombre.replace(/[^\wÁ-ú ]/g,"").replace(/\s+/g,"_");
+  const suf = meses.length===1 ? meses[0].etiqueta.replace(" ","_") : "historial";
+  XLSX.writeFile(wb, `Comisiones_${base}_${suf}.xlsx`);
+}
+
+/* ---------- visibilidad por mes (publicación) ---------- */
+function mesCorte(){ // último mes visible por defecto = mes anterior al actual (en octubre se ve septiembre)
+  const d=new Date(), y=d.getFullYear(), mo=d.getMonth();
+  return mo===0 ? `${y-1}-12` : `${y}-${String(mo).padStart(2,"0")}`;
+}
+function visible(clave, nombre){
+  const p = EST.personas?.[nombre]?.[clave]; if (p!==undefined) return !!p;
+  const m = EST.meses?.[clave]; if (m!==undefined) return !!m;
+  return clave <= mesCorte();
+}
+async function prepararVisibilidad(){
+  try{ const r = await fetch("estado.json",{cache:"no-store"}); if(r.ok) EST = Object.assign({meses:{},personas:{}}, await r.json()); }catch(e){}
+  D.todos = D.meses;
+  if (D.usuario.rol==="asesor" || D.usuario.rol==="jefe") D.meses = D.todos.filter(m=>visible(m.clave, D.usuario.nombre));
+}
+
+/* ---------- vista del jefe: su liquidación + solo ventas del equipo ---------- */
+function vistaJefe(m){
+  const own = m.filas.find(esYo);
+  let team = m.filas.filter(f=>!esYo(f));
+  if (state.q) team = team.filter(f=>f.nombre.toLowerCase().includes(state.q.toLowerCase()));
+  const uni = suma(team,"ventas");
+  const serie = D.meses.map(x=>({etiqueta:x.etiqueta, clave:x.clave, valor:(x.filas.find(esYo)?.monto||0)}));
+  return `
+  ${acciones()}
+  <div class="kpis">
+    ${own?`<div class="kpi main"><div class="l">Mi comisión · ${esc(m.etiqueta)}</div><div class="v">${fmtS(own.monto)}${own.referencial?'<span class="ref">ref.</span>':""}</div><div class="s">${own.referencial?"Referencial según Escala de Jefes":tagEstado(estF(own))}</div></div>`:""}
+    <div class="kpi"><div class="l">Ventas de mi equipo</div><div class="v">${fmtN(uni)||"–"}</div><div class="s">unidades · ${esc(m.etiqueta)}</div></div>
+    <div class="kpi"><div class="l">Asesores con ventas</div><div class="v">${team.filter(f=>f.ventas>0).length} / ${team.length}</div><div class="s">de mi equipo</div></div>
+  </div>
+  ${own&&own.detalle?`<div class="card"><h2>Mi liquidación <span class="n">· ${esc(m.etiqueta)}</span></h2>${detalleTabla(own)}</div>`:""}
+  <div class="bar noprint"><input type="search" id="fq" placeholder="Buscar asesor…" value="${esc(state.q)}" aria-label="Buscar asesor"></div>
+  <div class="card"><h2>Ventas de mi equipo <span class="n">· ${esc(m.etiqueta)}</span></h2><div class="tw">
+    ${team.length?`<table><tr><th>Asesor</th><th class="r">Ventas</th></tr>${team.map(f=>`<tr><td>${esc(f.nombre)}</td><td class="r"><b>${fmtN(f.ventas)}</b></td></tr>`).join("")}<tr class="sub"><td>Total equipo</td><td class="r">${fmtN(uni)}</td></tr></table>`:`<div class="empty">Sin registros.</div>`}
+  </div></div>
+  <div class="card"><h2>Mi evolución de comisiones</h2><div class="chart">${grafico(serie)}</div></div>`;
+}
+
+/* ---------- administración: activar / desactivar publicación ---------- */
+const tri = v => v===undefined ? "auto" : (v ? "on" : "off");
+function vistaAdmin(){
+  const meses = [...D.todos].reverse();
+  const corte = mesCorte();
+  const nombres = [...new Set(D.todos.flatMap(m=>m.filas.map(f=>f.nombre)))].sort((a,b)=>a.localeCompare(b,"es"));
+  const sel = (id,v)=>`<select class="sw" data-k="${esc(id)}"><option value="auto" ${v==="auto"?"selected":""}>Automático</option><option value="on" ${v==="on"?"selected":""}>Publicar</option><option value="off" ${v==="off"?"selected":""}>Ocultar</option></select>`;
+  const persona = state.adminPersona || "";
+  const ov = Object.entries(EST.personas||{}).flatMap(([n,o])=>Object.entries(o).map(([k,v])=>[n,k,v]));
+  return `
+  <p class="note" style="margin-top:16px"><b>Cómo funciona:</b> en <i>Automático</i>, asesores y jefes ven hasta el mes anterior al actual (hoy: hasta <b>${esc(etq(corte))}</b>). Con <i>Publicar</i> u <i>Ocultar</i> forzas un mes (para todos) o un mes para una persona. Gerencia y administración siempre ven todo. Al terminar, descarga <code>estado.json</code> y reemplázalo en GitHub.</p>
+  <div class="card"><h2>Meses <span class="n">· aplica a todos los asesores y jefes</span></h2><div class="tw"><table>
+    <tr><th>Mes</th><th>Por defecto</th><th>Control</th></tr>
+    ${meses.map(m=>`<tr><td>${esc(m.etiqueta)}</td><td class="dflt">${m.clave<=corte?"Visible":"Oculto"}</td><td>${sel("m|"+m.clave, tri(EST.meses?.[m.clave]))}</td></tr>`).join("")}
+  </table></div></div>
+  <div class="card"><h2>Por persona <span class="n">· tiene prioridad sobre el mes</span></h2>
+    <div class="bar" style="padding:12px 16px 0"><select id="ap" class="sw" aria-label="Persona"><option value="">Elegir persona…</option>${nombres.map(n=>`<option ${n===persona?"selected":""}>${esc(n)}</option>`).join("")}</select></div>
+    ${persona?`<div class="tw"><table><tr><th>Mes</th><th>Control para ${esc(persona)}</th></tr>${meses.map(m=>`<tr><td>${esc(m.etiqueta)}</td><td>${sel("p|"+persona+"|"+m.clave, tri(EST.personas?.[persona]?.[m.clave]))}</td></tr>`).join("")}</table></div>`:`<div class="empty">Elige una persona para activar o desactivar meses solo para ella.</div>`}
+  </div>
+  <div class="card"><h2>Excepciones activas <span class="n">· ${ov.length}</span></h2>${ov.length?`<div class="tw"><table><tr><th>Persona</th><th>Mes</th><th>Estado</th></tr>${ov.map(([n,k,v])=>`<tr><td>${esc(n)}</td><td>${esc(etq(k))}</td><td>${v?'<span class="tag ok">Publicado</span>':'<span class="tag warn">Oculto</span>'}</td></tr>`).join("")}</table></div>`:`<div class="empty">Sin excepciones por persona.</div>`}</div>
+  <div class="bar"><button class="primary" id="dlEst">⬇ Descargar estado.json</button><button id="rstEst">Restablecer todo a automático</button></div>`;
+}
+function etq(k){ const m=D.todos.find(x=>x.clave===k); if(m) return m.etiqueta; const [y,mm]=k.split("-"); return ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"][+mm-1]+" "+y; }
+function bindAdmin(){
+  app.querySelectorAll("select.sw").forEach(s=>s.onchange=()=>{
+    const [t,a,b]=s.dataset.k.split("|"); const v=s.value==="auto"?undefined:s.value==="on";
+    if (t==="m"){ EST.meses=EST.meses||{}; if(v===undefined) delete EST.meses[a]; else EST.meses[a]=v; }
+    else { EST.personas=EST.personas||{}; EST.personas[a]=EST.personas[a]||{}; if(v===undefined) delete EST.personas[a][b]; else EST.personas[a][b]=v; if(!Object.keys(EST.personas[a]).length) delete EST.personas[a]; }
+    render();
+  });
+  const ap=$("#ap"); if(ap) ap.onchange=()=>{state.adminPersona=ap.value; render();};
+  $("#dlEst").onclick=()=>{
+    const blob=new Blob([JSON.stringify({version:1,actualizado:new Date().toISOString(),meses:EST.meses||{},personas:EST.personas||{}},null,1)],{type:"application/json"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="estado.json"; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  };
+  $("#rstEst").onclick=()=>{ if(confirm("¿Volver todo a automático?")){ EST={meses:{},personas:{}}; render(); } };
+}
+
+loginView();
+</script>
+</body>
+</html>
